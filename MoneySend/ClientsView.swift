@@ -19,6 +19,8 @@ struct ClientsView: View {
     }
 }
 
+//Clicking on a client name should take you
+// an individual client page and we should use NavigationView
 struct HeaderView:View{
     var body: some View {
         Text("Clients").font(.title).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .leading).padding()
