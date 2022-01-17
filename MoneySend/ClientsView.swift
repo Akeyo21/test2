@@ -14,40 +14,43 @@ struct ClientsView: View {
             Spacer()
             BodyView()
             Spacer()
-            NavigationView()
+            BottomPanel()
         }
     }
 }
 
 struct HeaderView:View{
     var body: some View {
-        
-        Text("Clients").font(.title).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .leading)
+        Text("Clients").font(.title).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .leading).padding()
         
     }
 }
 
 struct BodyView:View{
     var body: some View {
-        VStack{
-            Text("Client 1")
-            Text("Client 2")
-            Text("Client 3")
-            Text("Client 4")
-        }
+            List{
+                CardView(clientName: "Victoria", amountDue: 1000, phoneNumber: 0711988653)
+                CardView(clientName: "Client 2", amountDue: 1000, phoneNumber: 0711988653)
+                CardView(clientName: "Client 3", amountDue: 1000, phoneNumber: 0711988653)
+                CardView(clientName: "Client 4", amountDue: 1000, phoneNumber: 0711988653)
+            }
     }
 }
 
-struct NavigationView:View{
+struct BottomPanel:View{
     var body: some View {
-        HStack(){
-            Text("Home").padding()
-            Spacer()
-            Text("Due")
-            Spacer()
-            Label("Add", systemImage:"plus.circle")
-            Spacer()
-            Text("Received").padding()
+        NavigationView{
+            HStack(){
+                Text("Home").padding()
+                Spacer()
+                Text("Due")
+                Spacer()
+                Label("Add", systemImage:"plus.circle")
+                Spacer()
+                Text("Sent")
+                Spacer()
+                Text("Received").padding()
+            }
         }
     }
 }
